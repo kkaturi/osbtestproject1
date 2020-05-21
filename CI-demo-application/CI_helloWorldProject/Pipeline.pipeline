@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+    <con:coreEntry>
+        <con:binding type="Any XML"/>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-a8df696.N4536d78e.0.172233220e9.N7fcf">
+            <con:stage id="_StageId-a8df696.N4536d78e.0.172233220e9.N7fcd" name="Stage1">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-a8df696.N4536d78e.0.172233220e9.N7fce">
+            <con:stage id="_StageId-a8df696.N4536d78e.0.172233220e9.N7fcc" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con1:assign varName="body">
+                        <con2:id>_ActionId-a8df696.N4536d78e.0.172233220e9.N7f99</con2:id>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                    </con1:assign>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-a8df696.N4536d78e.0.172233220e9.N7fcf</con:request>
+                <con:response>response-a8df696.N4536d78e.0.172233220e9.N7fce</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
